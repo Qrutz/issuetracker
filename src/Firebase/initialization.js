@@ -1,5 +1,5 @@
 import {initializeApp} from 'firebase/app';
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth';
 // import {getFirestore, collection, addDoc, doc, getDoc, setDoc} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
@@ -22,18 +22,25 @@ export async function createUser(auth, email, password) {
     return await createUserWithEmailAndPassword(auth, email, password);
 }
 
-export async function SignIn(email, password) {
+export const SignIn = async (email, password) => {
+    if (!email || !password) return;
+  
+    return await signInWithEmailAndPassword(auth, email, password);
+  }
+
+
+
+export async function SignOut() {
     try {
-        await signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            console.log(userCredential);
-        })
+        await auth.signOut();
     } catch (error) {
-        console.error("email and password doesnt match!: ", error);
+        console.error("error signing out!: ", error);
     }
 }
+export const ZonAuthStateChanged = (auth, callback) => {
+    onAuthStateChanged(auth, callback);
+}
 
-    ;
 
 
 
