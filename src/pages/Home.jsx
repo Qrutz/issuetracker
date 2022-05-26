@@ -12,7 +12,7 @@ export default function Home() {
 
 
   return (
-    <div className='container mx-auto flex flex-col'>
+    <div className='container mx-auto flex flex-col font-mono'>
         <NavbarOne />
         <NavbarTwo />
         <MenusComponent />
