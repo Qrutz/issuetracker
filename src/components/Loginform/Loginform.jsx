@@ -27,38 +27,28 @@ export default function Loginform() {
 
 
   return (
-    <form className="self-center" onSubmit={handleSubmit}> 
-    <div className=" text-center">
-        <div className="w-full max-w-lg h-screen ">
-            <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 h-2/4 w-96">
-                <div className="mb-4">
-                    <h1 className="text-2xl font-bold mt-7">LOGIN</h1>
+    <div className="relative w-full h-screen">
+    <div className="flex justify-center items-center h-full"> 
+    <form className="max-w-[400px] w-full mx-auto bg-white p-8 shadow-md rounded " onSubmit={handleSubmit}> 
+            <h2 className="text-4xl font-bold text-center py-4">EasyFlow</h2>        
+            <div className="flex flex-col mb-4">
+               
+                    <label>Username</label>
+                    <input className="border relative bg-gray-100 p-2" type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
+                    </div>
                     
-                    <div className="mb-4">
-                        
-                        <input onChange={(e) => setUsername(e.target.value)} value={username} className="h-12 mt-8 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text" placeholder="Username" />   
-
-            
-                        <input value={password} onChange={(e) => setPassword(e.target.value) } className="h-12 mt-8 shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" placeholder="******************" />
-                        
-
-                        <div className="flex items-center justify-center mt-2">
-                            <button type="submit" value='Submit'  className=" h-16 w-80 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" >
-                                SIGN IN 
-                            </button>
-                           
-
-
-
-                
-                </div>
-                </div>
-                </div>
-                </div>
-                </div>
+                    <div className="flex flex-col">
+                    <label>Password</label>
+                    <input className="border relative bg-gray-100 p-2" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+                    </div>
+                    <button className="w-full py-3 mt-8 bg-indigo-600 hover:bg-indigo-500 relative text-white">SIGN IN</button>
+                   
                     
+                </form>
+   
+                </div>     
     </div>
-    </form>
+    
   )
 }
 

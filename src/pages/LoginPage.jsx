@@ -8,9 +8,9 @@ export default function LoginPage() {
 
 
   return (
-    <div className=" mx-40 flex flex-col justify-center  mb-6 ">
+    
         
         <Loginform />
-    </div>
+    
   )
 }

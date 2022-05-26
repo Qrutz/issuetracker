@@ -11,7 +11,7 @@ export default function App() {
   const { CurrentUser } = React.useContext(UserContext);
 
   
-  console.log(CurrentUser ? CurrentUser.username : "No user");
+ 
 
     
     
