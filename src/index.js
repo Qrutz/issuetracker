@@ -5,14 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './contexts/usercontext';
 import { BrowserRouter } from 'react-router-dom';
-import 'flowbite';
+import { TicketProvider } from './contexts/ticketcontext';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
     <UserProvider> 
+    <TicketProvider>
     <App />
+    </TicketProvider>
     </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

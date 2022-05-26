@@ -1,6 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth';
-// import {getFirestore, collection, addDoc, doc, getDoc, setDoc} from 'firebase/firestore';
+import {getFirestore, collection, addDoc, doc, getDoc, setDoc, getDocs} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -49,17 +49,26 @@ export const ZonAuthStateChanged = (auth, callback) => {
 
 
 // Initialize Cloud Firestore and get a reference to the service
-// const db = getFirestore(app);
+const db = getFirestore(app);
 
 
-// export const setUser = async () => {
-//     const userRef = collection(db, "users");
+// export const createTicket = async () => {
+//     const ticketRef = collection(db, "Tickets");
 
-// await setDoc(doc(userRef, "Admin"), {
-//     name: "Admin", email: "test@hotmail.com", password: "password",
-//     role: "admin",
+// await setDoc(doc(ticketRef, "Ticket2"), {
+//     ticketID: ticketRef.id, ticketTitle: "Service rendering error", description: "need to do some shit idk what",
+//     Urgency: "Medium", Status: "Open", AssignedTo: "Henric", CreatedBy: "Joen", CreatedOn: new Date(),
 //     });
 // }
+
+
+export const getTickets = async () => {
+    const ticketRef = collection(db, "Tickets");
+    const tickets = await getDocs(ticketRef);
+    const out = tickets.docs.map(doc => doc.data());
+    return out;
+}
+
 
 
 
