@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {setUser, getUser, createUser, auth, SignIn} from "./Firebase/initialization";
 import LoginPage from "./pages/LoginPage";
-import { Routes, Route, Link, Redirect  } from 'react-router-dom';
+import { Routes, Route,  } from 'react-router-dom';
 import { UserContext } from './contexts/usercontext';
 import Home from './pages/Home';
 import { render } from '@testing-library/react';
@@ -33,7 +33,7 @@ export default function App() {
 
   return (
     <Routes>
-      {renderPage()}
+      <Route path="/" element={<Home />} />
      
      
 
