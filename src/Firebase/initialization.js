@@ -46,6 +46,9 @@ export const ZonAuthStateChanged = (auth, callback) => {
 
 
 
+let date = new Date();
+let miliseconds = date.getTime();
+
 
 
 // Initialize Cloud Firestore and get a reference to the service
@@ -55,8 +58,8 @@ const db = getFirestore(app);
 // export const createTicket = async () => {
 //     const ticketRef = collection(db, "Tickets");
 
-// await setDoc(doc(ticketRef, "Ticket2"), {
-//     ticketID: ticketRef.id, ticketTitle: "Service rendering error", description: "need to do some shit idk what",
+// await setDoc(doc(ticketRef, "Ticket1"), {
+//     ticketID: miliseconds, ticketTitle: "Service rendering error", description: "need to do some shit idk what",
 //     Urgency: "Medium", Status: "Open", AssignedTo: "Henric", CreatedBy: "Joen", CreatedOn: new Date(),
 //     });
 // }
