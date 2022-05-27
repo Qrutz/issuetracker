@@ -1,11 +1,8 @@
-import React from 'react'
-import { useState } from 'react'
-
 export default function TicketCardComponent(props) {
 
   return (
     <div className='container flex flex-col mt-7 bg-white '>
-        <div>
+        <div className=' '>
             <h1 className='text-lg font-light ml-8 mt-2'>Ticket #{props.ticketID}</h1>
         </div>
         <div>

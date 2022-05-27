@@ -1,6 +1,7 @@
 import {initializeApp} from 'firebase/app';
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth';
-import {getFirestore, collection, addDoc, doc, getDoc, setDoc, getDocs} from 'firebase/firestore';
+import {getFirestore, collection, addDoc, getDocs} from 'firebase/firestore';
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -63,6 +64,9 @@ const db = getFirestore(app);
 //     Urgency: "Medium", Status: "Open", AssignedTo: "Henric", CreatedBy: "Joen", CreatedOn: new Date(),
 //     });
 // }
+
+
+
 
 export function createTicket(title, descrition, urgency, status) {
     const ticketRef = collection(db, "Tickets");

@@ -7,6 +7,7 @@ export default function NavbarOne() {
     const {CurrentUser} = useContext(UserContext);
 
     // const CurrentEmail = CurrentUser.providerData[0].email
+    const CurrentEmail = CurrentUser ? CurrentUser.email : 'Admin';
 
 
   return (
@@ -16,7 +17,7 @@ export default function NavbarOne() {
                     <main className='flex items-center justify-between'>
                         <section className="flex items-center space-x-8">
                             <div className="flex items-center space-x-2 ml-8 h-20 w-36 flex-initial">
-                                <h2 className=" text-3xl  font-bold text-gray-200 capitalize tracking-wider">EasyFlow</h2>
+                                <h2 className=" text-3xl  font-bold text-gray-200 capitalize tracking-wider cursor-pointer">EasyFlow</h2>
                             </div>
                             <div className="lg:block hidden flex-initial">
                                 <ul className='flex items-center space-x-5'>
@@ -43,7 +44,7 @@ export default function NavbarOne() {
                     {/*create a search bar*/}
                     
                    
-                    <h2 className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer'>USER: { /*CurrentEmail*/}</h2>
+                    <h2 className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer'>USER: { CurrentEmail}</h2>
                     <h2 className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer'>LOGOUT</h2>
                 
                    
