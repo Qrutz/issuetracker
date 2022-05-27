@@ -1,6 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth';
-import {getFirestore, collection, addDoc, getDocs} from 'firebase/firestore';
+import {getFirestore, collection, addDoc, getDocs, deleteDoc } from 'firebase/firestore';
 
 
 // Your web app's Firebase configuration
@@ -75,7 +75,6 @@ export function createTicket(title, descrition, urgency, status) {
         Urgency: urgency, Status: status, AssignedTo: null, CreatedBy: null, CreatedOn: new Date(),
     });
 }
-
 
 
 
