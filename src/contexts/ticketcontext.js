@@ -7,19 +7,29 @@ export const TicketContext = createContext({
 });
 
 
+
 export const TicketProvider = ({ children }) => {
     const [Tickets, setTickets] = useState([]);
-
-
-    // useEffect(() => {
-    //     const tickets = getTickets();
-    //     console.log(tickets);
-    // }, []);
+    const [openTickets, setOpenTickets] = useState([]);
+    
 
     
 
+
+    useEffect(() => {
+        getTickets().then((tickets) => {
+            setTickets(tickets);
+            setOpenTickets(tickets.filter(ticket => ticket.Status === "Open"));
+        });
+    }, []);
+
+
+
+    
+   
+
     return (
-        <TicketContext.Provider value={{ Tickets, setTickets }}>
+        <TicketContext.Provider value={{ Tickets, setTickets, openTickets, setOpenTickets }}>
             {children}
         </TicketContext.Provider>
     );
