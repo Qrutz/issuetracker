@@ -64,6 +64,17 @@ const db = getFirestore(app);
 //     });
 // }
 
+export function createTicket(title, descrition, urgency, status) {
+    const ticketRef = collection(db, "Tickets");
+    addDoc(ticketRef, {
+        ticketID: miliseconds, ticketTitle: title, description: descrition,
+        Urgency: urgency, Status: status, AssignedTo: null, CreatedBy: null, CreatedOn: new Date(),
+    });
+}
+
+
+
+
 
 export const getTickets = async () => {
     const ticketRef = collection(db, "Tickets");
