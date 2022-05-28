@@ -2,6 +2,7 @@ import { deleteTicket } from "../../Firebase/initialization"
 import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/usercontext";
+import { updateTicket, getMyTickets } from "../../Firebase/initialization";
 
 export default function TicketCardComponent(props) {
 
@@ -19,7 +20,8 @@ export default function TicketCardComponent(props) {
     }
     function handleClickCheckmark (e) {
         e.preventDefault();
-        console.log("Assign to:", CurrentUser.email );
+        updateTicket(props.ticketID, CurrentUser);
+        console.log("Successfully Assigned to " + CurrentUser.email); 
     }
   
 

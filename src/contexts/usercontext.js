@@ -1,11 +1,11 @@
 import { createContext, useState, useEffect } from "react";
-import {    auth, SignOut, ZonAuthStateChanged } from "../Firebase/initialization";
+import {    auth, SignOut, ZonAuthStateChanged, getMyTickets } from "../Firebase/initialization";
 
 
 
 export const UserContext = createContext({
     CurrentUser: null,
-    setCurrentUser: () => null,
+    setCurrentUser: () => [],
 });
 
 
@@ -13,6 +13,9 @@ export const UserContext = createContext({
 
 export const UserProvider = ({ children }) => {
     const [CurrentUser, setCurrentUser] = useState(null);
+    
+
+    
 
     
 
@@ -20,7 +23,6 @@ export const UserProvider = ({ children }) => {
         const status = ZonAuthStateChanged(auth, (user) => {
             if (user) {
                 setCurrentUser(user);
-
             }
 
         });
@@ -28,7 +30,7 @@ export const UserProvider = ({ children }) => {
     }, []);
 
     return (
-        <UserContext.Provider value={{ CurrentUser, setCurrentUser }}>
+        <UserContext.Provider value={{ CurrentUser, setCurrentUser}}>
             {children}
         </UserContext.Provider>
     );

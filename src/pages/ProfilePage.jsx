@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import { UserContext } from '../contexts/usercontext';
-import {updateProfilee, updatemail } from '../Firebase/initialization';
+import {updateProfilee, getMyTickets } from '../Firebase/initialization';
+
 
 export default function ProfilePage() {
+
+    
+
+
+  
+   const [myTasks, setMyTasks] = useState([]);
+
+  
+
+
     const [ProfilePicture, setProfilePicture] = React.useState('https://www.kindpng.com/picc/m/107-1078146_pepe-frog-png-pepe-the-frog-rare-transparent.png');
 
     const [changing, setChanging] = React.useState(false);
@@ -13,13 +24,20 @@ export default function ProfilePage() {
 
     const { CurrentUser } = useContext(UserContext);
 
+    useEffect(() => {
+        getMyTickets(CurrentUser).then((data) => {
+            setMyTasks(data);
+        });
+    }, );
+
+    
+
+
 
     function handleSubmit(e) {
         e.preventDefault();
         updateProfilee(CurrentUser, { displayName: name });
-       
         setChanging(false);
-        alert("Refresh the page to see changes")
     }
 
     
@@ -49,7 +67,11 @@ export default function ProfilePage() {
     
 
   return (
+      
     <div className='flex flex-col justify-center items-center mt-5'>
+        <div className='  '> 
+            <h2 className=' text-3xl mb-3 font-bold'>ONGOING TASKS: {myTasks.length}</h2>
+        </div>
         <img className='h-48 w-52 rounded-full' src={ProfilePicture} alt="" />
         
         {form}
@@ -61,7 +83,7 @@ export default function ProfilePage() {
 
         <div>
             {/*create an h2 that says how many tickets user has solved */}
-            <h2 className=' text-4xl mt-4 font-bold'>You have solved: X issues</h2>
+            <h2 className=' text-4xl mt-4 font-bold'>You have solved: x issues</h2>
         </div>
 
         

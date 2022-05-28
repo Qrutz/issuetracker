@@ -7,6 +7,7 @@ import MenusComponent from "../Menus/menusComponent";
 
 export default function TicketListNotStartedComponent() {
     const {closedTickets} = useContext(TicketContext);
+   
 
     const len = closedTickets.length;
 

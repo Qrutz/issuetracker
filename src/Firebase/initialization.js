@@ -1,6 +1,6 @@
 import {initializeApp} from 'firebase/app';
 import {getAuth, updateProfile, updateEmail, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth';
-import {getFirestore, collection, addDoc, getDocs, deleteDoc } from 'firebase/firestore';
+import {getFirestore, collection, addDoc, getDocs, deleteDoc, setDoc } from 'firebase/firestore';
 
 
 // Your web app's Firebase configuration
@@ -50,6 +50,9 @@ export async function SignOut() {
 export const ZonAuthStateChanged = (auth, callback) => {
     onAuthStateChanged(auth, callback);
 }
+
+
+
 
 
 
@@ -106,6 +109,37 @@ export const getTickets = async () => {
     const out = tickets.docs.map(doc => doc.data());
     return out;
 }
+
+//get all tickets that are Assigned to the current user 
+export const getMyTickets = async (user) => {
+    const ticketRef = collection(db, "Tickets");
+    const tickets = await getDocs(ticketRef);
+    const out = tickets.docs.map(doc => doc.data())
+    .filter(ticket => ticket.AssignedTo === user.email);
+
+    return out;
+}
+
+
+//update the ticket so that it is assigned to the current user and leave the rest of the fields as they are
+export const updateTicket =  async (id, user) => {
+    const ticketRef = collection(db, "Tickets");
+    const tickets = await getDocs(ticketRef);
+    const ticket = tickets.docs.map(doc => doc.data().ticketID);
+    const index = ticket.indexOf(id);
+    setDoc(tickets.docs[index].ref, {
+        ticketID: tickets.docs[index].data().ticketID, ticketTitle: tickets.docs[index].data().ticketTitle, description: tickets.docs[index].data().description,
+        Urgency: tickets.docs[index].data().Urgency, Status: "In Progress", AssignedTo: user.email, CreatedBy: tickets.docs[index].data().CreatedBy, CreatedOn: tickets.docs[index].data().CreatedOn,
+    });
+    
+
+}
+
+//     setDoc(tickets.docs[index].ref, {
+//         assignedTo: user.email,
+//     });
+// }
+
 
 
 
