@@ -1,5 +1,5 @@
 import {initializeApp} from 'firebase/app';
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth';
+import {getAuth, updateProfile, updateEmail, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from 'firebase/auth';
 import {getFirestore, collection, addDoc, getDocs, deleteDoc } from 'firebase/firestore';
 
 
@@ -29,6 +29,14 @@ export const SignIn = async (email, password) => {
   
     return await signInWithEmailAndPassword(auth, email, password);
   }
+
+export const updateProfilee = (user, data) => {
+    return updateProfile(user, data);
+}
+export const updatemail = (user, email) => {
+    return updateEmail(user, email);
+}
+
 
 
 

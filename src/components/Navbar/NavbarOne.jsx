@@ -46,7 +46,7 @@ export default function NavbarOne() {
                                         <Link to='myTasks' className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer'>Task</Link>
                                     </li>
                                     <li className='cursor-pointer text-gray-200 hover:text-gray-300 text-md capitalize'>
-                                        <h2 className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer'>Workflow</h2>
+                                        <Link to='Profile' className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer'>Profile</Link>
                                     </li>
                                 </ul>
                             </div>

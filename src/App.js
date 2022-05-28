@@ -5,6 +5,7 @@ import { UserContext } from './contexts/usercontext';
 import Home from './pages/Home';
 import Navigation from './components/Navbar/Navigation';
 import MyTasks from './pages/myTasks';
+import ProfilePage from './pages/ProfilePage';
 
 
 
@@ -26,6 +27,7 @@ export default function App() {
         <Route path='/' element={<Navigation />}>
         <Route index element={<Home />} />
         <Route path='myTasks' element={<MyTasks />} />
+        <Route path='Profile' element={<ProfilePage />} />
         </Route>
       )
              
