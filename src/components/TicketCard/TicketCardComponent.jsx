@@ -1,14 +1,35 @@
-import DropDownComponent from "./DropDownComponent"
+import { deleteTicket } from "../../Firebase/initialization"
+import React from "react";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/usercontext";
 
 export default function TicketCardComponent(props) {
+
+  const { CurrentUser } = useContext(UserContext);
+
+
+ 
+
+
+
+    function handleClickRemove(e) {
+        e.preventDefault();
+        deleteTicket(props.ticketID);
+        
+    }
+    function handleClickCheckmark (e) {
+        e.preventDefault();
+        console.log("Assign to:", CurrentUser.email );
+    }
+  
 
   return (
     <div className='container flex flex-col mt-7 bg-white '>
         <div className='flex justify-between'>
             <h1 className='text-lg font-light ml-8 mt-2'>Ticket #{props.ticketID}</h1>
             <div className="flex flex-col ">     
-            <button className="text-3xl font-bold bg-red-700">X</button>
-            <button className="text-3xl font-bold bg-green-700">&#10003;</button>
+            <button className="text-3xl font-bold bg-red-700" onClick={handleClickRemove}>X</button>
+            <button className="text-3xl font-bold bg-green-700" onClick={handleClickCheckmark}>&#10003;</button>
             </div>
             
             

@@ -76,7 +76,19 @@ export function createTicket(title, descrition, urgency, status) {
     });
 }
 
+export const deleteTicket  = async (id) => {
+    const ticketRef = collection(db, "Tickets");
+    const tickets = await getDocs(ticketRef);
+    const ticket = tickets.docs.map(doc => doc.data().ticketID);
+    const index = ticket.indexOf(id);
+    deleteDoc(tickets.docs[index].ref);
 
+    console.log("deleted ticket: ", id);
+ 
+}
+
+    
+       
 
 
 export const getTickets = async () => {

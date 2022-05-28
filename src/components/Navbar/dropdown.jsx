@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react'
-import {useContext} from 'react'
+import React, { useState} from 'react'
+
 import { createTicket } from '../../Firebase/initialization'
 
 export default function Dropdown() {
@@ -11,7 +11,10 @@ export default function Dropdown() {
     function handleSubmit(e) {
         e.preventDefault();
         createTicket(ticketTitle, ticketDescription, ticketUrgency, ticketStatus);
-        console.log("Submitted")
+        setTicketTitle('');
+        setTicketDescription('');
+        setTicketUrgency('');
+        setTicketStatus('');
     }
 
     return (   

@@ -3,7 +3,7 @@ import LoginPage from "./pages/LoginPage";
 import { Routes, Route,  } from 'react-router-dom';
 import { UserContext } from './contexts/usercontext';
 import Home from './pages/Home';
-import {deleteTicket} from "./Firebase/initialization"
+
 
 
 
@@ -13,7 +13,7 @@ export default function App() {
   
  
  
-
+  
     
     
   
@@ -34,7 +34,8 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
+      {/* <Route path="/" element={<Home />} /> */}
+      {renderPage()}
     </Routes>
   )
 }
