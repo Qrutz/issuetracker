@@ -14,7 +14,7 @@ export const UserContext = createContext({
 export const UserProvider = ({ children }) => {
     const [CurrentUser, setCurrentUser] = useState(null);
 
-    SignOut();
+    
 
     useEffect(() => {
         const status = ZonAuthStateChanged(auth, (user) => {

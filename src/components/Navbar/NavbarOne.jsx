@@ -1,13 +1,27 @@
 import React from 'react';
 import { useContext } from 'react';
 import { UserContext } from '../../contexts/usercontext';
+import { SignOut } from '../../Firebase/initialization';
 
 
 export default function NavbarOne() {
-    const {CurrentUser} = useContext(UserContext);
+    const {CurrentUser, setCurrentUser} = useContext(UserContext);
 
     // const CurrentEmail = CurrentUser.providerData[0].email
     const CurrentEmail = CurrentUser ? CurrentUser.email : 'Admin';
+
+
+    function handleSignOut(e) {
+        e.preventDefault();
+        try {
+            SignOut();
+            console.log("Signing out");
+            setCurrentUser(null);
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
 
 
   return (
@@ -45,7 +59,7 @@ export default function NavbarOne() {
                     
                    
                     <h2 className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer'>USER: { CurrentEmail}</h2>
-                    <h2 className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer'>LOGOUT</h2>
+                    <h2 className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer' onClick={handleSignOut}>LOGOUT</h2>
                 
                    
 

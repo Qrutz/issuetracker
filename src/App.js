@@ -18,9 +18,9 @@ export default function App() {
     
   
   // if currentUser is null, redirect to login page else show home page
-  function renderPage() {
+   function renderPage() {
     if (CurrentUser) {
-      return <Route path="/" element={<Home />} />;
+      return  <Route path="/" element={<Home />} />;
     } else {
       return <Route path="/" element={<LoginPage /> } />;
     }
