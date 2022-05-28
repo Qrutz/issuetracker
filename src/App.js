@@ -3,6 +3,8 @@ import LoginPage from "./pages/LoginPage";
 import { Routes, Route,  } from 'react-router-dom';
 import { UserContext } from './contexts/usercontext';
 import Home from './pages/Home';
+import Navigation from './components/Navbar/Navigation';
+import MyTasks from './pages/myTasks';
 
 
 
@@ -20,7 +22,13 @@ export default function App() {
   // if currentUser is null, redirect to login page else show home page
    function renderPage() {
     if (CurrentUser) {
-      return  <Route path="/" element={<Home />} />;
+      return (
+        <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='myTasks' element={<MyTasks />} />
+        </Route>
+      )
+             
     } else {
       return <Route path="/" element={<LoginPage /> } />;
     }
@@ -34,8 +42,7 @@ export default function App() {
 
   return (
     <Routes>
-      {/* <Route path="/" element={<Home />} /> */}
-      {renderPage()}
+       {renderPage()}
     </Routes>
   )
 }

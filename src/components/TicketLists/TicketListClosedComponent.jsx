@@ -10,6 +10,8 @@ export default function TicketListNotStartedComponent() {
 
     const len = closedTickets.length;
 
+    
+
 
   return (
     <div>
