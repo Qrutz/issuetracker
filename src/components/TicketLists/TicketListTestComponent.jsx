@@ -5,7 +5,7 @@ import MenusComponent from "../Menus/menusComponent";
 
 
 
-export default function TicketListNotStartedComponent() {
+export default function TicketListTestComponent() {
     const {testTickets} = useContext(TicketContext);
 
     const len = testTickets.length;
@@ -15,7 +15,7 @@ export default function TicketListNotStartedComponent() {
     <div>
         <MenusComponent lengthOfIssues={len} menuTitle="IN TESTING" />
         { testTickets.map(ticket => (
-            <TicketCardComponent key={ticket.ticketID} ticketID={ticket.ticketID} ticketTitle={ticket.ticketTitle} ticketDescription={ticket.description} createdBy={ticket.CreatedBy} createdDate={ticket.createdOn} />
+            <TicketCardComponent Urgency={ticket.Urgency} key={ticket.ticketID} ticketID={ticket.ticketID} ticketTitle={ticket.ticketTitle} ticketDescription={ticket.description} createdBy={ticket.CreatedBy} createdDate={ticket.createdOn} />
         ))}
 
     </div>
