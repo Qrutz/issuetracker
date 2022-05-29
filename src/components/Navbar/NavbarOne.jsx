@@ -26,7 +26,7 @@ export default function NavbarOne() {
 
 
   return (
-            <div> 
+            <Fragment> 
             <nav className=' h-20 bg-slate-900 border-gray-200 px-2  py-2.5 flex justify-between'>
                 <section className='shadow-md border-md self-center'>
                     <main className='flex items-center justify-between'>
@@ -54,8 +54,7 @@ export default function NavbarOne() {
 
                 </section>
                 <section className='flex items-center space-x-5 flex-initial mr-5'>
-                    {/*create a search bar*/}
-                    
+                
                    
                     <h2 className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer'>USER: { CurrentEmail}</h2>
                     <h2 className='mr-3 text-sm hover:border-b-2 px-2.5 py-1.5 text-gray-200 cursor-pointer' onClick={handleSignOut}>LOGOUT</h2>
@@ -68,7 +67,7 @@ export default function NavbarOne() {
                 
             </nav>
             
-            </div>
+            </Fragment>
    
        
 

@@ -24,17 +24,24 @@ export default function App() {
    function renderPage() {
     if (CurrentUser) {
       return (
+        <Routes>
         <Route path='/' element={<Navigation />}>
         <Route index element={<Home />} />
         <Route path='myTasks' element={<MyTasks />} />
         <Route path='Profile' element={<ProfilePage />} />
         </Route>
+        </Routes>
       )
              
     } else {
-      return <Route path="/" element={<LoginPage /> } />;
+      return (
+        <Routes>
+        <Route exact path="/" element={<LoginPage /> } />
+        </Routes>
+        ) ;
     }
   }
+
  
 
   
@@ -43,8 +50,10 @@ export default function App() {
 
 
   return (
-    <Routes>
-       {renderPage()}
-    </Routes>
+   
+       renderPage()
+
+    
   )
 }
+
