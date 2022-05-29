@@ -2,7 +2,7 @@ import { deleteTicket } from "../../Firebase/initialization"
 import React from "react";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/usercontext";
-import { updateTicket, getMyTickets } from "../../Firebase/initialization";
+import { updateTicket } from "../../Firebase/initialization";
 import { BsFillFlagFill } from "react-icons/bs";
 
 export default function TicketCardComponent(props) {
@@ -40,10 +40,10 @@ export default function TicketCardComponent(props) {
     <div className='container flex flex-col mt-7 bg-white '>
         <div className='flex justify-between items-center'>
             <BsFillFlagFill className={flagColor()}  />            
-            <h1 className='text-lg font-light ml-8 mt-2'>Ticket #{props.ticketID}</h1>
-            <div className="flex flex-col ">     
-            <button className="text-3xl font-bold bg-red-700" onClick={handleClickRemove}>X</button>
-            <button className="text-3xl font-bold bg-green-700" onClick={handleClickCheckmark}>&#10003;</button>
+            <h1 className='text-base font-light -ml-16 mt-2'>Ticket #{props.ticketID}</h1>
+            <div className="flex  ">     
+            <button className="bg-origin-border border-4 rounded-full text-3xl  bg-red-700 mr-3" onClick={handleClickRemove}>X</button>
+            <button className="bg-origin-border border-4 rounded-full text-3xl bg-green-700" onClick={handleClickCheckmark}>&#10003;</button>
             </div>
             
             
@@ -54,7 +54,7 @@ export default function TicketCardComponent(props) {
             <p className='mt-2 ml-3 font-light'>{props.ticketDescription}</p>
         </div>
         <div className=' border-t-2 mb-4 ml-3 mt-4 flex justify-between mr-3'>
-            <h1 className=' mt-4 font-medium'>{props.createdBy}</h1>
+            <h1 className=' mt-4 font-medium'>Assigned To: {props.AssignedTo}</h1>
             <p className='mt-4 font-medium'>{props.createdDate}</p>
         </div>
         

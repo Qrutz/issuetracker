@@ -15,7 +15,7 @@ export default function TicketListInProgressComponent() {
     <div>
         <MenusComponent lengthOfIssues={len} menuTitle="IN PROGRESS" />
         { inProgresTickets.map(ticket => (
-            <TicketCardComponent Urgency={ticket.Urgency} key={ticket.ticketID} ticketID={ticket.ticketID} ticketTitle={ticket.ticketTitle} ticketDescription={ticket.description} createdBy={ticket.CreatedBy} createdDate={ticket.createdOn} />
+            <TicketCardComponent AssignedTo={ticket.AssignedTo} Urgency={ticket.Urgency} key={ticket.ticketID} ticketID={ticket.ticketID} ticketTitle={ticket.ticketTitle} ticketDescription={ticket.description} createdBy={ticket.CreatedBy} createdDate={ticket.createdOn} />
         ))}
 
     </div>

@@ -13,7 +13,7 @@ export default function TicketListNotStartedComponent() {
     <div>
         <MenusComponent lengthOfIssues={len} menuTitle="NOT STARTED"/>
         { openTickets.map(ticket => (
-            <TicketCardComponent Urgency={ticket.Urgency} key={ticket.ticketID} ticketID={ticket.ticketID} ticketTitle={ticket.ticketTitle} ticketDescription={ticket.description} createdBy={ticket.CreatedBy} createdDate={ticket.createdOn} />
+            <TicketCardComponent AssignedTo={ticket.AssignedTo} Urgency={ticket.Urgency} key={ticket.ticketID} ticketID={ticket.ticketID} ticketTitle={ticket.ticketTitle} ticketDescription={ticket.description} createdBy={ticket.CreatedBy} createdDate={ticket.createdOn} />
         ))}
 
     </div>
