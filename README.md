@@ -3,6 +3,8 @@ webapp which lets you sign in using firebase authentication. Create, assign, edi
 
 Reason for creation: Needed to learn how to Authenticate a user  and how to do 'CRUD' shenanigans with stored objects in a database which in this case are the (issues/tasks).
 
+Made with. React, Tailwind, Firebase
+
 ![fd79d0834f724d00bf4c86d289c32432](https://user-images.githubusercontent.com/40356149/171057990-0724e71d-e6ac-495a-b12f-0240e92d858f.png)
 
 
