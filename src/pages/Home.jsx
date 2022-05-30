@@ -5,19 +5,6 @@ import HomeDirectory from '../components/homeDirectory/HomeDirectory';
 
 export default function Home() {
 
-  
-  
-  
- 
- 
-
-
-
-
-
-  
-  
-
 
   return (
     <div className='container mx-auto flex flex-col font-mono'>
