@@ -8,17 +8,9 @@ import MyTasks from './pages/myTasks';
 import ProfilePage from './pages/ProfilePage';
 
 
-
-
 export default function App() {
   const { CurrentUser } = React.useContext(UserContext);
 
-  
- 
- 
-  
-    
-    
   
   // if currentUser is null, redirect to login page else show home page
    function renderPage() {
@@ -50,10 +42,7 @@ export default function App() {
 
 
   return (
-   
        renderPage()
-
-    
   )
 }
 
