@@ -4,7 +4,7 @@ Reason for creation: Needed to learn how to Authenticate a user  and how to do '
 
 Made with. React, Tailwind, Firebase
 
-lessons learned: Need to learn backend(node, express, mongodb) which woulda made the app safer/cleaner
+lessons learned: Need to learn backend(node, express, mongodb) which woulda made everything better
 
 ![fd79d0834f724d00bf4c86d289c32432](https://user-images.githubusercontent.com/40356149/171057990-0724e71d-e6ac-495a-b12f-0240e92d858f.png)
 
